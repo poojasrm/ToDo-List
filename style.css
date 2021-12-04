@@ -1,0 +1,40 @@
+.head{
+	background-color:blue;
+	color: white;
+	padding-top: 20px;
+	height: 100px;
+}
+.head span{
+    
+	font-size: 40px;
+	font-family: "Playfair Display",serif;
+}
+.foot{
+	
+	
+	padding: 10px;
+	position: fixed;
+	bottom: 0;
+
+}
+.foot span{
+	font-weight: bold;
+	font-style: italic;
+}
+.card-body{
+	margin-top: 10px;
+	width: 700px;
+	margin-left: 335px;
+	
+}
+
+#newtask{
+	width: 600px;
+}
+p{
+	font-family: "Poppins" ,sans-serif;
+	color: #2E4C6D;
+}
+.btn-1{
+	background-color:
+}
