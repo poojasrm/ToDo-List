@@ -11,6 +11,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Dancing+Script&family=Domine&family=Genos&family=Josefin+Sans:ital@1&family=Lobster&family=Merriweather:ital,wght@1,300&family=Nanum+Myeongjo&family=Road+Rage&family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Dancing+Script&family=Domine&family=Fuzzy+Bubbles:wght@400;700&family=Genos&family=Josefin+Sans:ital@1&family=Lobster&family=Merriweather:ital,wght@1,300&family=Nanum+Myeongjo&family=Road+Rage&family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
 </head>
+<style type="text/css">
+	.completeitem{text-decoration: line-through;}
+</style>
 <body>
 	
 	<div class="text-center head">
@@ -26,11 +29,12 @@
 				<input type="text" name="" id="newtask">
 			</div>
 			<div class="col-2 text-end">
-				<button class="btn btn-primary btn-sm btn-1">Add</button>
+				<button class="btn btn-primary btn-sm btn-1" onclick="addItem()">Add</button>
 
 			</div>
 			
 		</div>
+		<div class=row id=list ></div>
 	</div>
 
        
@@ -46,3 +50,31 @@
 
 </body>
 </html>
+
+
+<script type="text/javascript">
+	
+	function addItem()
+	{
+		newitem=$('#newtask').val();
+		html='<div class="row mylistitem mt-5" ><div class="col-1"><input type="checkbox" onchange=completeItem($(this).closest(".mylistitem")) /></div><div class="col-10">'+newitem+'</div><div class="col-1"><button onclick=deleteItem($(this).closest(".mylistitem")) class="btn btn-sm btn-danger">Delete</button></div></div>';
+		oldlist = $('#list').html();		
+		newlist=oldlist+html;
+		$('#list').html(newlist);
+
+	}
+
+	function completeItem(elem)
+	{
+		if(elem.hasClass('completeitem')) elem.removeClass('completeitem');
+		else elem.addClass('completeitem');
+	}
+
+	function deleteItem(elem)
+	{	elem.fadeOut(2000,function(){elem.remove();});
+		
+	}
+
+
+
+</script>
